@@ -36,6 +36,14 @@ def calculate_marked_up_price(base_price, num_people, type_markup):
 	"""
 	
 	subtotal = base_price + (base_price * FLAT_MARKUP)
+	final_price = subtotal
+	if num_people > 0:
+		final_price += subtotal * PERSON_MARKUP * num_people
+
+	if type_markup in TYPE_MARKUPS:
+		final_price += subtotal * TYPE_MARKUPS[type_markup]
+
+	return final_price
 
 
 	
