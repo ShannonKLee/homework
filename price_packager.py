@@ -35,11 +35,15 @@ def calculate_marked_up_price(base_price, num_people, type_markup):
 	1591.58
 	"""
 	
+	# Compute flat markup of 5%
 	subtotal = base_price + (base_price * FLAT_MARKUP)
 	final_price = subtotal
+
+	# Compute persons markup
 	if num_people > 0:
 		final_price += subtotal * PERSON_MARKUP * num_people
 
+	# Compute type markup if it exists
 	if type_markup in TYPE_MARKUPS:
 		final_price += subtotal * TYPE_MARKUPS[type_markup]
 
