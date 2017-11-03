@@ -29,11 +29,23 @@ def calculate_marked_up_price(base_price, num_people, type_markup):
 	float
 		The final price of the item after mark up calculations
 
+	Raises
+	------
+	ValueError
+		Raised if either base price or number of people is negative
+
 	Examples
 	--------
 	>>> calculate_marked_up_price(1299.99, 3, 'food')
 	1591.58
 	"""
+
+	# Check that base_price and num_people are valid 
+	if base_price < 0:
+		raise ValueError("Base price cannot be negative!")
+
+	if num_people < 0:
+		raise ValueError("Number of people cannot be negative!")
 	
 	# Compute flat markup of 5%
 	subtotal = base_price + (base_price * FLAT_MARKUP)
