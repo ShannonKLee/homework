@@ -1,14 +1,14 @@
 # Name-markup pairs for each type
 TYPE_MARKUPS = {
 	"pharmaceutical": 0.075,
-	"food": 0.013,
+	"food": 0.13,
 	"electronic": 0.02,
 }
 
 FLAT_MARKUP = 0.05
 PERSON_MARKUP = 0.012
 
-def calculate_marked_up_price(base_price, num_people, type):
+def calculate_marked_up_price(base_price, num_people, type_markup):
 	""" Calculate the marked up value of an item.
 
 	Price packager will first calculate the flat mark up rate of 5%
@@ -21,7 +21,7 @@ def calculate_marked_up_price(base_price, num_people, type):
 		The initial price of the item
 	num_people : int
 		The number of people that worked on the item
-	type : str
+	markup_type : str
 		The category the item falls under. Each type has its own markup.
 
 	Returns
@@ -34,4 +34,8 @@ def calculate_marked_up_price(base_price, num_people, type):
 	>>> calculate_marked_up_price(1299.99, 3, 'food')
 	1591.58
 	"""
+	
+	subtotal = base_price + (base_price * FLAT_MARKUP)
+
+
 	
