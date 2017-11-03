@@ -1,3 +1,13 @@
+# Name-markup pairs for each type
+TYPE_MARKUPS = {
+	"pharmaceutical": 0.075,
+	"food": 0.013,
+	"electronic": 0.02,
+}
+
+FLAT_MARKUP = 0.05
+PERSON_MARKUP = 0.012
+
 def calculate_marked_up_price(base_price, num_people, type):
 	""" Calculate the marked up value of an item.
 
